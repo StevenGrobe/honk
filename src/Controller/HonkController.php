@@ -67,8 +67,9 @@ class HonkController extends AbstractController
      */
     public function list()
     {
+        $honks = $this->getDoctrine()->getRepository(Honk::class)->findBy([], ['created_at' => 'desc']);
         return $this->render('honk/list.html.twig', [
-            //'honks' => $honk->findAll(),
+            'honks' => $honks,
         ]);
     }
 }

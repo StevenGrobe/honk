@@ -1,4 +1,8 @@
-{% extends 'base/index.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
 <h1>Publier un honk</h1>
 {{ form_start(form) }}
 {{ form_row(form.content) }}
@@ -7,3 +11,5 @@
 {{ form_row(form.honks) }}
 <button type="submit">ajouter</button>
 {{ form_end(form) }}
+
+{% endblock %}
