@@ -1,10 +1,8 @@
 <h1>Publier un honk</h1>
-    {{ form_start(form) }}
-    <div class="card form-group">
-            <label for="">Content</label>
-            {{ form_widget(form.content) }}
-            <label for="">Path image</label>
-            {{ form_widget(form.image) }}
-    </div>
-    <button type="submit" class="btn btn-sucess">Ajouter</button>
-    {{ form_end(form) }}
+{{ form_start(form) }}
+{{ form_row(form.content) }}
+{{ form_row(form.image) }}
+{{ form_row(form.created_at) }}
+{{ form_row(form.honks) }}
+<button type="submit">ajouter</button>
+{{ form_end(form) }}

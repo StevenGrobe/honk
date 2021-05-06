@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Honk;
+use App\Form\HonkType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,7 +36,11 @@ class HonkController extends AbstractController
 
     public function create()
     {
-        return $this->render('honk/create.html.twig');
+        $honk = new Honk();
+        $form = $this->createForm(HonkType::class, $honk);
+        return $this->render('honk/create.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
