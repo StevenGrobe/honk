@@ -14,17 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 class HonkController extends AbstractController
 {
     /**
-     * @Route("/honk", name="honk")
-     */
-
-    public function index(): Response
-    {
-        return $this->render('honk/index.html.twig', [
-            'controller_name' => 'HonkController',
-        ]);
-    }
-
-    /**
      * @Route("/", name="home")
      */
 
@@ -78,6 +67,8 @@ class HonkController extends AbstractController
      */
     public function list()
     {
-        return $this->render('honk/list.html.twig');
+        return $this->render('honk/list.html.twig', [
+            //'honks' => $honk->findAll(),
+        ]);
     }
 }
