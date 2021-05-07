@@ -3,7 +3,9 @@
 {% block body %}
 
 {% for honk in honks %}
-<h2>{{honk.content}}</h2>
+    <p>{{honk.content}}</p>
+    <img src="{{honk.image}}"/>
+    <p><br /></p>
 {% endfor %}
 
 {% endblock %}
