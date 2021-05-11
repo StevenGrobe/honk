@@ -5,6 +5,8 @@
 {% for honk in honks %}
     <p>{{honk.content}}</p>
     <img src="{{honk.image}}"/>
+    <a href="https://127.0.0.1:8000/modify/{{ honk.id }}" class="btn btn-primary">modify</a>
+    <a href="https://127.0.0.1:8000/delete/{{ honk.id }}" class="btn btn-primary">delete</a>
     <p><br /></p>
 {% endfor %}
 

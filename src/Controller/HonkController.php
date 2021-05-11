@@ -14,12 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 class HonkController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="list")
      */
-
-    public function display()
+    public function list()
     {
-        return $this->render('honk/display.html.twig');
+        $honks = $this->getDoctrine()->getRepository(Honk::class)->findBy([], ['created_at' => 'desc']);
+        return $this->render('honk/list.html.twig', [
+            'honks' => $honks,
+        ]);
     }
 
     /**
@@ -65,22 +67,22 @@ class HonkController extends AbstractController
     }
 
     /**
-     * @Route("/delete", name="delete")
+     * @Route("/delete/{id}", name="delete")
      */
 
-    public function delete()
+    public function delete(Honk $honk)
     {
-        return $this->render('honk/delete.html.twig');
-    }
+        $entityManager = $this->getDoctrine()->getManager();
+        if (!$honk) {
+            throw $this->createNotFoundException(
+                'No quack found for id ' . $honk
+            );
+        }
+        $entityManager->remove($honk);
+        $entityManager->flush();
+        return $this->redirectToRoute('list', [
+            'id' => $honk->getId(),
 
-    /**
-     * @Route("/list", name="list")
-     */
-    public function list()
-    {
-        $honks = $this->getDoctrine()->getRepository(Honk::class)->findBy([], ['created_at' => 'desc']);
-        return $this->render('honk/list.html.twig', [
-            'honks' => $honks,
         ]);
     }
 }
