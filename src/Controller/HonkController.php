@@ -71,19 +71,11 @@ class HonkController extends AbstractController
      * @Route("/delete/{id}", name="delete")
      */
 
-    public function delete(Honk $honk)
+    public function delete(Honk $honk, EntityManagerInterface $manager)
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        if (!$honk) {
-            throw $this->createNotFoundException(
-                'No quack found for id ' . $honk
-            );
-        }
-        $entityManager->remove($honk);
-        $entityManager->flush();
-        return $this->redirectToRoute('list', [
-            'id' => $honk->getId(),
-
-        ]);
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($honk);
+        $manager->flush();
+        return $this->redirectToRoute('list');
     }
 }
