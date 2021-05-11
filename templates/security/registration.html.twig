@@ -5,11 +5,12 @@
 <h1>inscription</h1>
 
 {{ form_start(form) }}
+
 {{ form_row(form.username, {'label': 'user : '}) }}
 {{ form_row(form.email, {'label': 'email : '}) }}
 {{ form_row(form.password, {'label': 'password : '}) }}
 {{ form_row(form.confirm_password, {'label': 'confirm password : '}) }}
-<button type="submit">inscription</button>
+<button type="submit" class="btn btn-success">inscription</button>
 {{ form_end(form) }}
 
 {% endblock %}

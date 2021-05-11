@@ -1,1 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
 <h2>modify</h2>
+<div class="example-wrapper">
+    <h1>Modifier un quack ✅</h1>
+    {{ form_start(form) }}
+    <div class="card form-group">
+        <label for="">Content</label>
+        {{ form_widget(form.content) }}
+        <label for="">Path image</label>
+        {{ form_widget(form.image) }}
+    </div>
+    <button type="submit" class="btn btn-sucess">Ajouter</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

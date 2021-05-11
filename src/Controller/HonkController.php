@@ -45,12 +45,23 @@ class HonkController extends AbstractController
     }
 
     /**
-     * @Route("/modify", name="modify")
+     * @Route("/modify/{id}", name="modify")
      */
 
-    public function modify()
+    public function modify(Honk $honk, Request $request, EntityManagerInterface $manager)
     {
-        return $this->render('honk/modify.html.twig');
+        $manager = $this->getDoctrine()->getManager();
+        $form = $this->createForm(HonkType::class, $honk);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $honk->setCreatedAt(new \DateTime());
+            $manager->flush();
+            return $this->redirectToRoute('list');
+        }
+        return $this->render('honk/modify.html.twig', [
+        'controller_name' => 'HonkController',
+        'form' => $form->createView(),
+            ]);
     }
 
     /**
