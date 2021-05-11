@@ -8,7 +8,8 @@ Install Composer.
 PHP & MySQL install :  
 * Get [MAMP](https://www.mamp.info/en/downloads/)
 * Create new global environment variables  ```Path - C:\MAMP\bin\php\php7.4.1```  
-* Uncomment PDO extension in ```C:\MAMP\bin\php\php7.4.1\php.ini```  
+* Uncomment __extension=pdo_mysql__ in ```C:\MAMP\bin\php\php7.4.1\php.ini```  
+* ```php -v```  
   
 Symfony install :  
 * Download [Symfony](https://symfony.com/download)  
