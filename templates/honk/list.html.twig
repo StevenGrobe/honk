@@ -7,6 +7,7 @@
     <img src="{{honk.image}}"/>
     <a href="https://127.0.0.1:8000/modify/{{ honk.id }}" class="btn btn-primary">modify</a>
     <a href="https://127.0.0.1:8000/delete/{{ honk.id }}" class="btn btn-primary">delete</a>
+    <p>{{ honk.createdAt|date('d/m/Y') }}</p>
     <p><br /></p>
 {% endfor %}
 

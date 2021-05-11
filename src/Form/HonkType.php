@@ -13,9 +13,9 @@ class HonkType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('created_at')
+            //->add('created_at')
             ->add('image')
-            ->add('honks')
+            //->add('honks')
         ;
     }
 
