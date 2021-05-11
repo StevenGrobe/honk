@@ -34,7 +34,7 @@ class HonkController extends AbstractController
         $form = $this->createForm(HonkType::class, $honk);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $honk->setHonks($this->getUser());
+            // $honk->setHonks($this->getUser());
             $honk->setCreatedAt(new \DateTime());
             $manager->persist($honk);
             $manager->flush();
@@ -56,6 +56,7 @@ class HonkController extends AbstractController
         $form = $this->createForm(HonkType::class, $honk);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            // $honk->setHonks($this->getUser());
             $honk->setCreatedAt(new \DateTime());
             $manager->flush();
             return $this->redirectToRoute('list');
